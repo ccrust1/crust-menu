@@ -8,7 +8,7 @@
 <title>كب كرست · CupCrust — كشك قهوة مختصة | حي عكاظ، الرياض</title>
 <meta name="description" content="كب كرست — كشك قهوة مختصة وحلا في حي عكاظ، الرياض. خذ كوبك وامشِ. شغّالين ٢٤ ساعة.">
 <meta name="theme-color" content="#F1EEE9">
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <!-- ===== المشاركة (Open Graph / Twitter) — بعد ما تربط الدومين حدّث og:url ===== -->
 <meta property="og:type" content="website">
@@ -21,19 +21,19 @@
 <!-- ===== بيانات النشاط المحلي (SEO محلي — قوقل) ===== -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "CafeOrCoffeeShop",
-  "name": "CupCrust كب كرست",
-  "description": "كشك قهوة مختصة وحلا في حي عكاظ، الرياض",
-  "telephone": "+966548485814",
-  "address": {"@type": "PostalAddress", "streetAddress": "حي عكاظ", "addressLocality": "الرياض", "addressCountry": "SA"},
-  "hasMap": "https://maps.app.goo.gl/3onAEEf2U9C9Mcrz9",
-  "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59"},
-  "servesCuisine": "Specialty Coffee",
-  "priceRange": "$$"
+"@context": "https://schema.org",
+"@type": "CafeOrCoffeeShop",
+"name": "CupCrust كب كرست",
+"description": "كشك قهوة مختصة وحلا في حي عكاظ، الرياض",
+"telephone": "+966548485814",
+"address": {"@type": "PostalAddress", "streetAddress": "حي عكاظ", "addressLocality": "الرياض", "addressCountry": "SA"},
+"hasMap": "https://maps.app.goo.gl/3onAEEf2U9C9Mcrz9",
+"openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59"},
+"servesCuisine": "Specialty Coffee",
+"priceRange": "$$"
 }
 </script>
-<script src="/script.js" defer></script>
+<script src="script.js" defer></script>
 <!-- سطر مهم: لازم يضل أول شي قبل CSS. يخلّي المحتوى يظهر حتى لو الجافاسكربت تعطّل -->
 <script>document.documentElement.classList.add('js')</script>
 
@@ -43,299 +43,243 @@
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- ===== ملف التنسيقات ===== -->
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ============================================================
-     مكتبة الرسومات (أيقونات المشروبات والحلا) — مخفية، تُستدعى بالكروت
-     ما تحتاج تعدّلها. لكن لو بترسم أيقونة جديدة، أضِفها هنا كـ <symbol>
-     ============================================================ -->
+مكتبة الرسومات (أيقونات المشروبات والحلا) — مخفية، تُستدعى بالكروت
+============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <symbol id="i-espresso" viewBox="0 0 100 100"><path d="M33 46h28l-3 18a7 7 0 0 1-7 6H43a7 7 0 0 1-7-6Z"/><path d="M61 50h6a6 6 0 0 1 0 12h-4"/><path d="M28 78c10 6 34 6 44 0"/><path d="M44 31c-3 5 3 7 0 12M53 29c-3 5 3 7 0 12"/></symbol>
-  <symbol id="i-mug" viewBox="0 0 100 100"><path d="M30 42h34v22a9 9 0 0 1-9 9H39a9 9 0 0 1-9-9Z"/><path d="M64 47h7a9 9 0 0 1 0 18h-5"/><path d="M33 50c14 7 17 7 31 0"/><path d="M42 30c-3 5 3 7 0 12M52 30c-3 5 3 7 0 12"/></symbol>
-  <symbol id="i-latte" viewBox="0 0 100 100"><path d="M30 42h34v22a9 9 0 0 1-9 9H39a9 9 0 0 1-9-9Z"/><path d="M64 47h7a9 9 0 0 1 0 18h-5"/><path d="M47 49c-7 5-7 16 0 22c7-6 7-17 0-22Z"/><path d="M47 52v16M47 57l4-3M47 57l-4-3M47 62l4-3M47 62l-4-3"/></symbol>
-  <symbol id="i-v60" viewBox="0 0 100 100"><path d="M30 34h40l-15 19H45Z"/><path d="M37 34l9 19M50 34l-2 19M63 34l-9 19"/><path d="M36 55h28v15a7 7 0 0 1-7 7H43a7 7 0 0 1-7-7Z"/><path d="M64 60h6a4 4 0 0 1 0 8h-3"/></symbol>
-  <symbol id="i-iced" viewBox="0 0 100 100"><path d="M35 30h30l-3 50a5 5 0 0 1-5 4H43a5 5 0 0 1-5-4Z"/><path d="M37 46h26"/><path d="M44 53h8v8h-8ZM53 63h7v7h-7Z"/><path d="M60 22l-10 56"/></symbol>
-  <symbol id="i-bottle" viewBox="0 0 100 100"><path d="M44 24h12v6l5 7v32a6 6 0 0 1-6 6H45a6 6 0 0 1-6-6V37l5-7Z"/><path d="M44 20h12v4h-12Z"/><path d="M40 48h20v12h-20Z"/></symbol>
-  <symbol id="i-matcha" viewBox="0 0 100 100"><path d="M30 52c0 16 40 16 40 0"/><path d="M28 50c12 9 32 9 44 0"/><path d="M58 28v16"/><path d="M53 44c2 6 2 8 0 12M58 44v12M63 44c-2 6-2 8 0 12"/></symbol>
-  <symbol id="i-choc" viewBox="0 0 100 100"><path d="M30 44h34v20a9 9 0 0 1-9 9H39a9 9 0 0 1-9-9Z"/><path d="M64 48h7a8 8 0 0 1 0 16h-5"/><circle cx="42" cy="46" r="4"/><circle cx="52" cy="46" r="4"/><path d="M47 30c-3 5 3 7 0 12"/></symbol>
-  <symbol id="i-tea" viewBox="0 0 100 100"><path d="M30 52c2 13 38 13 40 0"/><path d="M34 52c8-7 24-7 32 0"/><path d="M50 45v-5"/><path d="M70 56c8-1 11-4 11-9"/><path d="M30 55c-8 2-8 10 0 13"/><path d="M48 33c-3 4 3 6 0 10"/></symbol>
-  <symbol id="i-croissant" viewBox="0 0 100 100"><path d="M26 62c8-20 40-20 48 0c-15-7-33-7-48 0Z"/><path d="M40 53v8M50 51v9M60 53v8"/></symbol>
-  <symbol id="i-cookie" viewBox="0 0 100 100"><circle cx="50" cy="54" r="21"/><circle cx="44" cy="48" r="2.4" fill="currentColor" stroke="none"/><circle cx="58" cy="50" r="2.4" fill="currentColor" stroke="none"/><circle cx="50" cy="62" r="2.4" fill="currentColor" stroke="none"/><circle cx="41" cy="59" r="2" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-brownie" viewBox="0 0 100 100"><path d="M32 56h36v12H32Z"/><path d="M34 48h32v8H34Z"/><circle cx="50" cy="42" r="2.2" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-cheese" viewBox="0 0 100 100"><path d="M34 64L66 64L60 42Z"/><path d="M32 64h36v6H32Z"/><circle cx="57" cy="49" r="3" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-bean" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="13" ry="18" transform="rotate(35 24 24)"/><path d="M17 14C24 22 24 26 31 34"/></symbol>
+<symbol id="i-espresso" viewBox="0 0 100 100"><path d="M33 46h28l-3 18a7 7 0 0 1-7 6H43a7 7 0 0 1-7-6Z"/><path d="M61 50h6a6 6 0 0 1 0 12h-4"/><path d="M28 78c10 6 34 6 44 0"/><path d="M44 31c-3 5 3 7 0 12M53 29c-3 5 3 7 0 12"/></symbol>
+<symbol id="i-mug" viewBox="0 0 100 100"><path d="M30 42h34v22a9 9 0 0 1-9 9H39a9 9 0 0 1-9-9Z"/><path d="M64 47h7a9 9 0 0 1 0 18h-5"/><path d="M33 50c14 7 17 7 31 0"/><path d="M42 30c-3 5 3 7 0 12M52 30c-3 5 3 7 0 12"/></symbol>
+<symbol id="i-latte" viewBox="0 0 100 100"><path d="M30 42h34v22a9 9 0 0 1-9 9H39a9 9 0 0 1-9-9Z"/><path d="M64 47h7a9 9 0 0 1 0 18h-5"/><path d="M47 49c-7 5-7 16 0 22c7-6 7-17 0-22Z"/><path d="M47 52v16M47 57l4-3M47 57l-4-3M47 62l4-3M47 62l-4-3"/></symbol>
+<symbol id="i-v60" viewBox="0 0 100 100"><path d="M30 34h40l-15 19H45Z"/><path d="M37 34l9 19M50 34l-2 19M63 34l-9 19"/><path d="M36 55h28v15a7 7 0 0 1-7 7H43a7 7 0 0 1-7-7Z"/><path d="M64 60h6a4 4 0 0 1 0 8h-3"/></symbol>
+<symbol id="i-iced" viewBox="0 0 100 100"><path d="M35 30h30l-3 50a5 5 0 0 1-5 4H43a5 5 0 0 1-5-4Z"/><path d="M37 46h26"/><path d="M44 53h8v8h-8ZM53 63h7v7h-7Z"/><path d="M60 22l-10 56"/></symbol>
+<symbol id="i-bottle" viewBox="0 0 100 100"><path d="M44 24h12v6l5 7v32a6 6 0 0 1-6 6H45a6 6 0 0 1-6-6V37l5-7Z"/><path d="M44 20h12v4h-12Z"/><path d="M40 48h20v12h-20Z"/></symbol>
+<symbol id="i-matcha" viewBox="0 0 100 100"><path d="M30 52c0 16 40 16 40 0"/><path d="M28 50c12 9 32 9 44 0"/><path d="M58 28v16"/><path d="M53 44c2 6 2 8 0 12M58 44v12M63 44c-2 6-2 8 0 12"/></symbol>
+<symbol id="i-choc" viewBox="0 0 100 100"><path d="M30 44h34v20a9 9 0 0 1-9 9H39a9 9 0 0 1-9-9Z"/><path d="M64 48h7a8 8 0 0 1 0 16h-5"/><circle cx="42" cy="46" r="4"/><circle cx="52" cy="46" r="4"/><path d="M47 30c-3 5 3 7 0 12"/></symbol>
+<symbol id="i-tea" viewBox="0 0 100 100"><path d="M30 52c2 13 38 13 40 0"/><path d="M34 52c8-7 24-7 32 0"/><path d="M50 45v-5"/><path d="M70 56c8-1 11-4 11-9"/><path d="M30 55c-8 2-8 10 0 13"/><path d="M48 33c-3 4 3 6 0 10"/></symbol>
+<symbol id="i-croissant" viewBox="0 0 100 100"><path d="M26 62c8-20 40-20 48 0c-15-7-33-7-48 0Z"/><path d="M40 53v8M50 51v9M60 53v8"/></symbol>
+<symbol id="i-cookie" viewBox="0 0 100 100"><circle cx="50" cy="54" r="21"/><circle cx="44" cy="48" r="2.4" fill="currentColor" stroke="none"/><circle cx="58" cy="50" r="2.4" fill="currentColor" stroke="none"/><circle cx="50" cy="62" r="2.4" fill="currentColor" stroke="none"/><circle cx="41" cy="59" r="2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-brownie" viewBox="0 0 100 100"><path d="M32 56h36v12H32Z"/><path d="M34 48h32v8H34Z"/><circle cx="50" cy="42" r="2.2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-cheese" viewBox="0 0 100 100"><path d="M34 64L66 64L60 42Z"/><path d="M32 64h36v6H32Z"/><circle cx="57" cy="49" r="3" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-bean" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="13" ry="18" transform="rotate(35 24 24)"/><path d="M17 14C24 22 24 26 31 34"/></symbol>
 </defs></svg>
 
-<!-- ============================================================
-     شاشة التحميل — الكوب يتعبّى قهوة (احذف هذا البلوك لو ما تبيها)
-     ============================================================ -->
 <div class="preloader" id="preloader">
-  <div class="pre-inner">
-    <svg class="pre-cup" viewBox="0 0 70 92" aria-hidden="true">
-      <defs><clipPath id="cc"><path d="M16 28h38l-3 46a6 6 0 0 1-6 5H25a6 6 0 0 1-6-5z"/></clipPath></defs>
-      <g clip-path="url(#cc)"><rect class="fill" x="14" y="0" width="44" height="84"/></g>
-      <path d="M13 28h44" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-      <path d="M16 28h38l-3 46a6 6 0 0 1-6 5H25a6 6 0 0 1-6-5z" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
-      <path d="M54 38h5a6 6 0 0 1 0 12h-4" stroke="currentColor" stroke-width="2.4" fill="none"/>
-    </svg>
-    <div class="pre-word">كب كرست</div>
-  </div>
+<div class="pre-inner">
+<svg class="pre-cup" viewBox="0 0 70 92" aria-hidden="true">
+<defs><clipPath id="cc"><path d="M16 28h38l-3 46a6 6 0 0 1-6 5H25a6 6 0 0 1-6-5z"/></clipPath></defs>
+<g clip-path="url(#cc)"><rect class="fill" x="14" y="0" width="44" height="84"/></g>
+<path d="M13 28h44" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+<path d="M16 28h38l-3 46a6 6 0 0 1-6 5H25a6 6 0 0 1-6-5z" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+<path d="M54 38h5a6 6 0 0 1 0 12h-4" stroke="currentColor" stroke-width="2.4" fill="none"/>
+</svg>
+<div class="pre-word">كب كرست</div>
+</div>
 </div>
 
-<!-- عناصر عائمة: المؤشر المخصّص + شريط التقدّم + زر ارجع فوق -->
 <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 <div class="cursor-dot" id="cdot" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <button class="backtop" id="backtop" aria-label="ارجع فوق">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<!-- ============================================================
-     القائمة العلوية
-     - الشعار: assets/logo.png
-     - الروابط: غيّر النص أو الترتيب من هنا
-     ============================================================ -->
 <nav class="nav" id="nav">
-  <div class="wrap">
-    <a class="nav-brand" href="#top" aria-label="كب كرست"><img src="assets/logo.png" alt="كب كرست CupCrust"></a>
-    <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-    <div class="nav-links" id="navlinks">
-      <a href="#story">القصة</a>
-      <a href="#menu">المنيو</a>
-      <a href="#visit">زورونا</a>
-      <a class="nav-cta" href="#menu">تصفّح المنيو</a>
-    </div>
-  </div>
+<div class="wrap">
+<a class="nav-brand" href="#top" aria-label="كب كرست"><img src="logo.png" alt="كب كرست CupCrust"></a>
+<button class="burger" id="burger" aria-label="القائمة" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+<div class="nav-links" id="navlinks">
+<a href="#story">القصة</a>
+<a href="#menu">المنيو</a>
+<a href="#visit">زورونا</a>
+<a class="nav-cta" href="#menu">تصفّح المنيو</a>
+</div>
+</div>
 </nav>
 
-<!-- ============================================================
-     الهيرو (أول شاشة)
-     - الشعار الكبير: assets/logo.png
-     - الماسكوت: assets/mascot.png
-     - غيّر العنوان/النص/الوسوم من هنا مباشرة
-     ============================================================ -->
 <header class="hero" id="top">
-  <!-- حبوب القهوة الطائرة بالخلفية (زخرفة) -->
-  <div class="hero-beans" aria-hidden="true">
-    <span class="b1"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
-    <span class="b2"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
-    <span class="b3"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
-    <span class="b4"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
-  </div>
-  <div class="wrap">
-    <div class="hero-text">
-      <h1 class="sr-only">كب كرست CupCrust — كشك قهوة مختصة وحلا في حي عكاظ، الرياض</h1>
-      <img class="hero-logo reveal-load d1" src="assets/logo.png" alt="كب كرست CupCrust">
-      <!-- العنوان مقسوم سطرين عشان يطلع بحركة. كل سطر داخل span.line > span.inner -->
-      <p class="lead reveal-load d4">كشك قهوة مختصة وحلا في حي عكاظ — توقّف، خذ كوبك، وكمّل مشوارك.</p>
-      <div class="hero-chips reveal-load d5">
-        <span>محاصيل فاخرة</span><span>كوكيز طازج يوميًا</span><span>٢٤ ساعة</span>
-      </div>
-      <div class="hero-actions reveal-load d5">
-        <a class="btn btn-solid" href="#menu">تصفّح المنيو
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M12 5l-7 7 7 7"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#visit">وين نلقاكم؟</a>
-      </div>
-      <div class="scrollcue reveal-load d5">انزل لتحت <span></span></div>
-    </div>
-    <div class="hero-art reveal-load d3">
-      <svg class="steam" viewBox="0 0 70 90" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-        <path pathLength="1" d="M20 80 C12 64 30 58 22 42 C16 30 30 24 24 8"/>
-        <path pathLength="1" d="M37 82 C30 66 47 60 39 44 C33 32 47 26 41 10"/>
-        <path pathLength="1" d="M54 80 C47 66 62 60 55 45 C50 34 62 28 56 14"/>
-      </svg>
-      <img src="assets/mascot.png" alt="شخصية كب كرست تمسك كوب قهوة" width="465" height="553">
-    </div>
-  </div>
+<div class="hero-beans" aria-hidden="true">
+<span class="b1"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
+<span class="b2"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
+<span class="b3"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
+<span class="b4"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#i-bean"/></svg></span>
+</div>
+<div class="wrap">
+<div class="hero-text">
+<h1 class="sr-only">كب كرست CupCrust — كشك قهوة مختصة وحلا في حي عكاظ، الرياض</h1>
+<img class="hero-logo reveal-load d1" src="logo.png" alt="كب كرست CupCrust">
+<p class="lead reveal-load d4">كشك قهوة مختصة وحلا في حي عكاظ — توقّف، خذ كوبك، وكمّل مشوارك.</p>
+<div class="hero-chips reveal-load d5">
+<span>محاصيل فاخرة</span><span>كوكيز طازج يوميًا</span><span>٢٤ ساعة</span>
+</div>
+<div class="hero-actions reveal-load d5">
+<a class="btn btn-solid" href="#menu">تصفّح المنيو
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M12 5l-7 7 7 7"/></svg>
+</a>
+<a class="btn btn-ghost" href="#visit">وين نلقاكم؟</a>
+</div>
+<div class="scrollcue reveal-load d5">انزل لتحت <span></span></div>
+</div>
+<div class="hero-art reveal-load d3">
+<svg class="steam" viewBox="0 0 70 90" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+<path pathLength="1" d="M20 80 C12 64 30 58 22 42 C16 30 30 24 24 8"/>
+<path pathLength="1" d="M37 82 C30 66 47 60 39 44 C33 32 47 26 41 10"/>
+<path pathLength="1" d="M54 80 C47 66 62 60 55 45 C50 34 62 28 56 14"/>
+</svg>
+<img src="mascot.png" alt="شخصية كب كرست تمسك كوب قهوة" width="465" height="553">
+</div>
+</div>
 </header>
 
-<!-- فاصل مرسوم -->
 <svg class="divider reveal" viewBox="0 0 240 24" aria-hidden="true"><path pathLength="1" d="M2 12 C30 2 50 22 78 12 C106 2 126 22 154 12 C182 2 202 22 238 12"/></svg>
 
-<!-- ============================================================
-     القصة — بدّل النصوص بقصتك الحقيقية
-     ============================================================ -->
-<section class="section story" id="story">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">القصة</span>
-      <h2>ليه كب كرست؟</h2>
-    </div>
-    <div class="story-body">
-      <div class="reveal">
-        <p>كب كرست كشك قهوة مختصة في حي عكاظ. ما عندنا جلسات ولا طاولات — عندنا كوب مضبوط، يجهز بسرعة، وتاخذه معك وين ما كان مشوارك.</p>
-        <p>الاسم يشرح الفكرة: «كب» هو القهوة — حبوب مختارة وتحضير ثابت بنفس معايير المقاهي المختصة. و«كرست» هو الجانب الحلو — كوكيز وبودنق يجهز طازج كل يوم. كوبك ومعه شي حلو، وأنت ماشي.</p>
-      </div>
-      <aside class="story-aside reveal" data-cursor>
-        <p class="q">«ما يحتاج تقعد، عشان تشرب قهوة صح.»</p>
-        <p class="sig">CupCrust — Hay Okaz</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     الشريط المتحرّك — غيّر الكلمات (لكن خلها متكررة مرتين زي ما هي للسلاسة)
-     ============================================================ -->
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="it">قهوة مختصة<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كب كرست<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>حي عكاظ<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كوكيز طازج كل يوم<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg></span>
-    <span class="it">قهوة مختصة<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كب كرست<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>حي عكاظ<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كوكيز طازج كل يوم<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg></span>
-  </div>
+<div class="marquee-track">
+<span class="it">قهوة مختصة<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كب كرست<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>حي عكاظ<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كوكيز طازج كل يوم<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg></span>
+<span class="it">قهوة مختصة<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كب كرست<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>حي عكاظ<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg>كوكيز طازج كل يوم<svg class="bn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bean"/></svg></span>
+</div>
 </div>
 
-<!-- ============================================================
-     المنيو
-     -------------------------------------------------------------
-     ★ أيقونة الصنف ★  كل <article class="menu-item"> يبدأ بـ <span class="thumb"><svg><use href="#i-xxx"/></svg></span>
-     غيّر href="#i-xxx" لأي أيقونة من مكتبة <defs> بأول الصفحة (i-espresso, i-latte, i-mug, i-iced, i-bottle, i-matcha, i-choc, i-tea, i-croissant, i-cookie, i-brownie, i-cheese, i-v60)
+<section class="section story" id="story">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">القصة</span>
+<h2>ليه كب كرست؟</h2>
+</div>
+<div class="story-body">
+<div class="reveal">
+<p>كب كرست كشك قهوة مختصة في حي عكاظ. ما عندنا جلسات ولا طاولات — عندنا كوب مضبوط، يجهز بسرعة، وتاخذه معك وين ما كان مشوارك.</p>
+<p>الاسم يشرح الفكرة: «كب» هو القهوة — حبوب مختارة وتحضير ثابت بنفس معايير المقاهي المختصة. و«كرست» هو الجانب الحلو — كوكيز وبودنق يجهز طازج كل يوم. كوبك ومعه شي حلو، وأنت ماشي.</p>
+</div>
+<aside class="story-aside reveal" data-cursor>
+<p class="q">«ما يحتاج تقعد، عشان تشرب قهوة صح.»</p>
+<p class="sig">CupCrust — Hay Okaz</p>
+</aside>
+</div>
+</div>
+</section>
 
-     ★ السعر ★  داخل <span class="price">  → الرقم + <i>ر.س</i>
-     ★ الأصناف ★  انسخ أي <article class="menu-item">…</article> عشان تضيف صنف جديد
-     ============================================================ -->
 <section class="section menu" id="menu">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">المنيو</span>
-      <h2>وش كوبك اليوم؟</h2>
-    </div>
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">المنيو</span>
+<h2>وش كوبك اليوم؟</h2>
+</div>
 
-    <!-- شريط تنقّل الأقسام — يلتصق فوق أثناء تصفّح المنيو -->
-    <nav class="menu-tabs reveal" aria-label="أقسام المنيو">
-      <a href="#coffe-cold-drinks">البارد</a>
-      <a href="#hot">الساخن</a>
-      <a href="#sweet">الحلويات</a>
-    </nav>
+<nav class="menu-tabs reveal" aria-label="أقسام المنيو">
+<a href="#coffe-cold-drinks">البارد</a>
+<a href="#hot">الساخن</a>
+<a href="#sweet">الحلويات</a>
+</nav>
 
+<div class="cat-block" id="coffe-cold-drinks">
+<div class="cat-title reveal"><h3>القهوة والمشروبات الباردة</h3><span class="en"></span></div>
+<div class="menu-list">
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Kj5120cM/crust-03.jpg" alt="V60" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>V60</h4><span class="en">V60</span></div><p class="desc">محصول اثيوبي او كولومبي</p></div><span class="price">16 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Kj5120cM/crust-03.jpg" alt="قهوة اليوم" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>قهوة اليوم</h4><span class="en">Coffee of the Day</span></div><p class="desc">محصول اثيوبي , كولومبي , برازيلي</p></div><span class="price">8 / 10 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/5WTKQcwQ/magnific-create-a-cold-iced-spanish-latte-drink-exactly-lik-56077-copy.jpg" alt="كرست لاتيه" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كرست لاتيه</h4><span class="en">Crust Iced Latte</span></div><p class="desc">حليب محلّى، حلو ومنعش.</p></div><span class="price">15 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/XZd3nVn2/magnific-create-an-iced-matcha-latte-drink-served-in-the-sa-56076-copy.jpg" alt="ماتشا لاتيه" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>ماتشا </h4><span class="en">Matcha Latte</span></div><p class="desc">ماتشا يابانية فاخرة ولذيذة.</p></div><span class="price">18 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/bp93PFm/magnific-replace-the-drink-inside-img1-with-a-peach-iced-te-56074-copy.jpg" alt="كرست كركديه " loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كركديه</h4><span class="en">Karkadeh</span></div><p class="desc">كركديه مخمر +8 ساعات , طعم لذيذ وموزون.</p></div><span class="price">15 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/bRrvGmMK/magnific-replace-th5e-drink-inside-img1-with-a-peach-iced-te-56074-copy.jpg" alt="كرست آيس تي" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كرست آيس تي</h4><span class="en">Crust Iced Tea</span></div><p class="desc">ايس تي خوخ ومنقا , طعم لذيذ وحلاوة موزونة</p></div><span class="price">15 <i>ر.س</i></span></article>
+</div>
+</div>
 
+<div class="cat-block" id="hot">
+<div class="cat-title reveal"><h3>القهوة والمشروبات الساخنة</h3><span class="en"></span></div>
+<div class="menu-list">
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/CkJctwZ/magnific-a-small-4-oz-espresso-paper-cup-with-the-exact-sam-56079-copy.jpg" alt="إسبريسو" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>إسبريسو</h4><span class="en">Espresso</span></div><p class="desc">اسبريسو بمحصول سلفادوري فاخر</p></div><span class="price">9 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/XZNTYrnT/magnific-a-hot-cortado-coffee-served-in-a-small-open-paper-56081-copy.jpg" alt="كورتادو" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كورتادو</h4><span class="en">Cortado</span></div><p class="desc">إسبريسو وحليب بالتساوي — قوي وناعم.</p></div><span class="price">12 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/tw50g4zZ/magnific-a-hot-flat-white-coffee-served-in-the-same-open-pa-56080-copy.jpg" alt="فلات وايت" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>فلات وايت</h4><span class="en">Flat White</span></div><p class="desc">حليب مخملي، نكهة أعمق.</p></div><span class="price">15 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Q7GWLfk8/magnific-a-hot-flat-white-coffee-served-in-the-same-open-pa-56080-copy.jpg" alt="لاتيه" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>لاتيه</h4><span class="en">Latte</span></div><p class="desc">ناعم ومتوازن.</p></div><span class="price">15 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/5hdq2gQv/magnific-a-cup-of-hot-red-tea-black-tea-served-in-the-same-56083-copy.jpg" alt="شاهي" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>شاهي</h4><span class="en">Tea</span></div><p class="desc">شاهي أحمر مضبوط.</p></div><span class="price">3 <i>ر.س</i></span></article>
+</div>
+</div>
 
-    <!-- ===== المشروبات الباردةوالقهوة===== -->
-    <div class="cat-block" id="coffe-cold-drinks">
-      <div class="cat-title reveal"><h3>القهوة والمشروبات الباردة</h3><span class="en"></span></div>
-      <div class="menu-list">
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Kj5120cM/crust-03.jpg" alt="V60" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>V60</h4><span class="en">V60</span></div><p class="desc">محصول اثيوبي او كولومبي</p></div><span class="price"><i class="symbol">&#xea;</i>16</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Kj5120cM/crust-03.jpg" alt="قهوة اليوم" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>قهوة اليوم</h4><span class="en">Coffee of the Day</span></div><p class="desc">محصول اثيوبي , كولومبي , برازيلي</p></div><span class="price"><i class="symbol">&#xea;</i>8 / 10</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/5WTKQcwQ/magnific-create-a-cold-iced-spanish-latte-drink-exactly-lik-56077-copy.jpg" alt="كرست لاتيه" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كرست لاتيه</h4><span class="en">Crust Iced  Latte</span></div><p class="desc">حليب محلّى، حلو ومنعش.</p></div><span class="price"><i class="symbol">&#xea;</i>15</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/XZd3nVn2/magnific-create-an-iced-matcha-latte-drink-served-in-the-sa-56076-copy.jpg" alt="ماتشا لاتيه" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>ماتشا </h4><span class="en">Matcha Latte</span></div><p class="desc">ماتشا يابانية فاخرة ولذيذة.</p></div><span class="price"><i class="symbol">&#xea;</i>18</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/bp93PFm/magnific-replace-the-drink-inside-img1-with-a-peach-iced-te-56074-copy.jpg" alt="كرست كركديه " loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كركديه</h4><span class="en">Karkadeh</span></div><p class="desc">كركديه مخمر +8 ساعات , طعم لذيذ وموزون.</p></div><span class="price"><i class="symbol">&#xea;</i>15</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/bRrvGmMK/magnific-replace-th5e-drink-inside-img1-with-a-peach-iced-te-56074-copy.jpg" alt="كرست آيس تي" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كرست آيس تي</h4><span class="en">Crust Iced Tea</span></div><p class="desc">ايس تي خوخ ومنقا , طعم لذيذ وحلاوة موزونة</p></div><span class="price"><i class="symbol">&#xea;</i>15</span></article>
-       </div>
-    </div>
-
-    <!-- ===== المشروبات الساخنة ===== -->
-    <div class="cat-block" id="hot">
-      <div class="cat-title reveal"><h3>القهوة والمشروبات الساخنة</h3><span class="en"></span></div>
-      <div class="menu-list">
-         <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/CkJctwZ/magnific-a-small-4-oz-espresso-paper-cup-with-the-exact-sam-56079-copy.jpg" alt="إسبريسو" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>إسبريسو</h4><span class="en">Espresso</span></div><p class="desc">اسبريسو بمحصول سلفادوري فاخر</p></div><span class="price"><i class="symbol">&#xea;</i>9</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/XZNTYrnT/magnific-a-hot-cortado-coffee-served-in-a-small-open-paper-56081-copy.jpg" alt="كورتادو" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كورتادو</h4><span class="en">Cortado</span></div><p class="desc">إسبريسو وحليب بالتساوي — قوي وناعم.</p></div><span class="price"><i class="symbol">&#xea;</i>12</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/tw50g4zZ/magnific-a-hot-flat-white-coffee-served-in-the-same-open-pa-56080-copy.jpg" alt="فلات وايت" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>فلات وايت</h4><span class="en">Flat White</span></div><p class="desc">حليب مخملي، نكهة أعمق.</p></div><span class="price"><i class="symbol">&#xea;</i>15</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Q7GWLfk8/magnific-a-hot-flat-white-coffee-served-in-the-same-open-pa-56080-copy.jpg" alt="لاتيه" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>لاتيه</h4><span class="en">Latte</span></div><p class="desc">ناعم ومتوازن.</p></div><span class="price"><i class="symbol">&#xea;</i>15</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/5hdq2gQv/magnific-a-cup-of-hot-red-tea-black-tea-served-in-the-same-56083-copy.jpg" alt="شاهي" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>شاهي</h4><span class="en">Tea</span></div><p class="desc">شاهي أحمر مضبوط.</p></div><span class="price"><i class="symbol">&#xea;</i>3</span></article>
-
-
-             </div>
-    </div>
-
-
-
-    <!-- ===== حلا ===== -->
-    <div class="cat-block" id="sweet">
-      <div class="cat-title reveal"><h3>الحلويات</h3><span class="en">Crust</span></div>
-      <div class="menu-list">
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/ymkB9BLc/crust-02.jpg" alt="كوكيز (٦ حبات)" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كوكيز شوكلت بايتس (٦ حبات)</h4><span class="en">Cookies Bites</span></div><p class="desc">كوب ب 6 حبات كوكيز شوكلاته كلاسيك لذيذ وطري</p></div><span class="price"><i class="symbol">&#xea;</i>10</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/ymkB9BLc/crust-02.jpg" alt="كوكيز (٦ حبات)" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كوكيز كندر بايتس (٦ حبات)</h4><span class="en">Cookies Bites</span></div><p class="desc">كوب ب 6 حبات كوكيز كندر لذيذ وطري</p></div><span class="price"><i class="symbol">&#xea;</i>12</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/r2By1g59/magnific-the-same-open-white-paper-cup-with-the-exact-same-56084-copy.jpg" alt="بودنق شوكولاتة" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>بودنق شوكولاتة</h4><span class="en">Chocolate Pudding</span></div><p class="desc">كريمي وغني بالشوكولاتة.</p></div><span class="price"><i class="symbol">&#xea;</i>15</span></article>
-        <article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Qj1KNj7s/crust-01.jpg" alt="بودنق موز" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>بودنق موز</h4><span class="en">Banana Pudding</span></div><p class="desc">بودنق الموز الكلاسيكي — بارد وكريمي.</p></div><span class="price"><i class="symbol">&#xea;</i>17</span></article>
-        
-      </div>
-    </div>
-  </div>
+<div class="cat-block" id="sweet">
+<div class="cat-title reveal"><h3>الحلويات</h3><span class="en">Crust</span></div>
+<div class="menu-list">
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/ymkB9BLc/crust-02.jpg" alt="كوكيز (٦ حبات)" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كوكيز شوكلت بايتس (٦ حبات)</h4><span class="en">Cookies Bites</span></div><p class="desc">كوب ب 6 حبات كوكيز شوكلاته كلاسيك لذيذ وطري</p></div><span class="price">10 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/ymkB9BLc/crust-02.jpg" alt="كوكيز (٦ حبات)" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>كوكيز كندر بايتس (٦ حبات)</h4><span class="en">Cookies Bites</span></div><p class="desc">كوب ب 6 حبات كوكيز كندر لذيذ وطري</p></div><span class="price">12 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/r2By1g59/magnific-the-same-open-white-paper-cup-with-the-exact-same-56084-copy.jpg" alt="بودنق شوكولاتة" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>بودنق شوكولاتة</h4><span class="en">Chocolate Pudding</span></div><p class="desc">كريمي وغني بالشوكولاتة.</p></div><span class="price">15 <i>ر.س</i></span></article>
+<article class="menu-item reveal"><span class="thumb"><img src="https://i.ibb.co/Qj1KNj7s/crust-01.jpg" alt="بودنق موز" loading="lazy"></span><div class="menu-copy"><div class="item-top"><h4>بودنق موز</h4><span class="en">Banana Pudding</span></div><p class="desc">بودنق الموز الكلاسيكي — بارد وكريمي.</p></div><span class="price">17 <i>ر.س</i></span></article>
+</div>
+</div>
+</div>
 </section>
 
 <svg class="divider reveal" viewBox="0 0 240 24" aria-hidden="true"><path pathLength="1" d="M2 12 C30 2 50 22 78 12 C106 2 126 22 154 12 C182 2 202 22 238 12"/></svg>
 
-<!-- ============================================================
-     زورونا — حدّث الموقع/الدوام/الرقم وروابط الأزرار
-     - زر الخريطة: حط رابط قوقل مابس في href
-     - كرت الخريطة: تقدر تستبدله بـ iframe خريطة قوقل (شرح بالـ README)
-     ============================================================ -->
 <section class="section visit" id="visit">
-  <div class="wrap">
-    <div class="visit-body">
-      <div class="reveal">
-        <span class="eyebrow">زورونا</span>
-        <h2>مرّ، خذ كوبك.</h2>
-        <ul class="visit-list">
-          <li>
-            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path pathLength="1" d="M16 28s9-8 9-15a9 9 0 0 0-18 0c0 7 9 15 9 15z"/><circle pathLength="1" cx="16" cy="13" r="3.2"/></svg>
-            <div><span class="k">الموقع</span><span class="v">حي عكاظ، الرياض</span></div>
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle pathLength="1" cx="16" cy="16" r="11"/><path pathLength="1" d="M16 9v7l5 3"/></svg>
-            <div><span class="k">الدوام</span><span class="v">٢٤ ساعة · طوال أيام الأسبوع</span></div>
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path pathLength="1" d="M9 7h5l2 6-3 2a13 13 0 0 0 6 6l2-3 6 2v5a2 2 0 0 1-2 2A19 19 0 0 1 7 9a2 2 0 0 1 2-2z"/></svg>
-            <div><span class="k">تواصل</span><a href="tel:+966548485814"><span class="v lat">054 848 5814</span></a></div>
-          </li>
-        </ul>
-        <div class="visit-actions">
-          <a class="btn btn-solid" href="https://maps.app.goo.gl/3onAEEf2U9C9Mcrz9" target="_blank" rel="noopener" aria-label="الموقع على الخريطة">الموقع على الخريطة
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="tel:+966548485814">اتصل بنا</a>
-        </div>
-      </div>
-      <!-- كرت الخريطة (رسمة) — يفتح موقعنا على قوقل مابس. تقدر تستبدله بخريطة iframe -->
-      <a class="map-card reveal" data-cursor href="https://maps.app.goo.gl/3onAEEf2U9C9Mcrz9" target="_blank" rel="noopener" aria-label="موقع كب كرست على قوقل مابس">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M10 38h100M10 74h100M40 10v100M82 10v100" opacity=".5"/>
-          <path class="pin" d="M61 78s14-12 14-23a14 14 0 0 0-28 0c0 11 14 23 14 23z"/>
-          <circle class="pin" cx="61" cy="55" r="5"/>
-        </svg>
-        <span class="map-tag">حي عكاظ · الرياض</span>
-      </a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="visit-body">
+<div class="reveal">
+<span class="eyebrow">زورونا</span>
+<h2>مرّ، خذ كوبك.</h2>
+<ul class="visit-list">
+<li>
+<svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path pathLength="1" d="M16 28s9-8 9-15a9 9 0 0 0-18 0c0 7 9 15 9 15z"/><circle pathLength="1" cx="16" cy="13" r="3.2"/></svg>
+<div><span class="k">الموقع</span><span class="v">حي عكاظ، الرياض</span></div>
+</li>
+<li>
+<svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle pathLength="1" cx="16" cy="16" r="11"/><path pathLength="1" d="M16 9v7l5 3"/></svg>
+<div><span class="k">الدوام</span><span class="v">٢٤ ساعة · طوال أيام الأسبوع</span></div>
+</li>
+<li>
+<svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path pathLength="1" d="M9 7h5l2 6-3 2a13 13 0 0 0 6 6l2-3 6 2v5a2 2 0 0 1-2 2A19 19 0 0 1 7 9a2 2 0 0 1 2-2z"/></svg>
+<div><span class="k">تواصل</span><a href="tel:+966548485814"><span class="v lat">054 848 5814</span></a></div>
+</li>
+</ul>
+<div class="visit-actions">
+<a class="btn btn-solid" href="https://maps.app.goo.gl/3onAEEf2U9C9Mcrz9" target="_blank" rel="noopener" aria-label="الموقع على الخريطة">الموقع على الخريطة
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+</a>
+<a class="btn btn-ghost" href="tel:+966548485814">اتصل بنا</a>
+</div>
+</div>
+<a class="map-card reveal" data-cursor href="https://maps.app.goo.gl/3onAEEf2U9C9Mcrz9" target="_blank" rel="noopener" aria-label="موقع كب كرست على قوقل مابس">
+<svg viewBox="0 0 120 120" aria-hidden="true">
+<path d="M10 38h100M10 74h100M40 10v100M82 10v100" opacity=".5"/>
+<path class="pin" d="M61 78s14-12 14-23a14 14 0 0 0-28 0c0 11 14 23 14 23z"/>
+<circle class="pin" cx="61" cy="55" r="5"/>
+</svg>
+<span class="map-tag">حي عكاظ · الرياض</span>
+</a>
+</div>
+</div>
 </section>
 
-<!-- ============================================================
-     الفوتر — حدّث روابط السوشال (href) واسم العلامة والوصف
-     ============================================================ -->
 <footer class="footer">
-  <svg class="cup-motif" viewBox="0 0 70 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-    <path class="st" pathLength="1" d="M20 78 C13 64 28 58 21 44"/>
-    <path class="st" pathLength="1" d="M37 80 C30 66 45 60 38 46"/>
-    <path d="M14 30h42l-4 44a6 6 0 0 1-6 5H24a6 6 0 0 1-6-5z"/>
-    <path d="M12 30h46"/>
-  </svg>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-mark-wrap">
-        <div class="footer-mark">كب كرست<span class="en">CUPCRUST</span></div>
-        <p class="tag">كشك قهوة مختصة وحلا في حي عكاظ، الرياض — ٢٤ ساعة. خذها وامشِ.</p>
-      </div>
-      <div class="footer-col">
-        <h5>روابط</h5>
-        <ul><li><a href="#story">القصة</a></li><li><a href="#menu">المنيو</a></li><li><a href="#visit">زورونا</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h5>تابعنا</h5>
-        <ul><li><a href="https://www.instagram.com/ccrust1" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@ccrust1" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://www.snapchat.com/add/ccrust1" target="_blank" rel="noopener">Snapchat</a></li></ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="yr"></span> كب كرست — جميع الحقوق محفوظة.</span>
-      <span class="lat">Hay Okaz · Riyadh, SA</span>
-    </div>
-  </div>
+<svg class="cup-motif" viewBox="0 0 70 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<path class="st" pathLength="1" d="M20 78 C13 64 28 58 21 44"/>
+<path class="st" pathLength="1" d="M37 80 C30 66 45 60 38 46"/>
+<path d="M14 30h42l-4 44a6 6 0 0 1-6 5H24a6 6 0 0 1-6-5z"/>
+<path d="M12 30h46"/>
+</svg>
+<div class="wrap">
+<div class="footer-top">
+<div class="footer-mark-wrap">
+<div class="footer-mark">كب كرست<span class="en">CUPCRUST</span></div>
+<p class="tag">كشك قهوة مختصة وحلا في حي عكاظ، الرياض — ٢٤ ساعة. خذها وامشِ.</p>
+</div>
+<div class="footer-col">
+<h5>روابط</h5>
+<ul><li><a href="#story">القصة</a></li><li><a href="#menu">المنيو</a></li><li><a href="#visit">زورونا</a></li></ul>
+</div>
+<div class="footer-col">
+<h5>تابعنا</h5>
+<ul><li><a href="https://www.instagram.com/ccrust1" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@ccrust1" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://www.snapchat.com/add/ccrust1" target="_blank" rel="noopener">Snapchat</a></li></ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="yr"></span> كب كرست — جميع الحقوق محفوظة.</span>
+<span class="lat">Hay Okaz · Riyadh, SA</span>
+</div>
+</div>
 </footer>
 
-<!-- ملف الحركات والتفاعل -->
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-

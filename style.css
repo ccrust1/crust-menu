@@ -1,0 +1,391 @@
+/* ===================================================================
+   كب كرست — ملف التنسيقات (CSS)
+   -------------------------------------------------------------------
+   كل قسم مكتوب فوقه تعليق يوضّح وش يسوّي.
+   أهم مكان للتعديل: قسم "المتغيرات" تحت مباشرة (الألوان/الخطوط).
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   1) المتغيرات — غيّر من هنا تنطبّق على كل الموقع
+   - الألوان: بدّل قيمة الهيكس عشان تغيّر هوية الموقع كامل
+   - الخطوط: ثلاث مجموعات (عناوين / نص / لاتيني+أرقام)
+   - المقاسات: عرض المحتوى والهوامش الجانبية
+   ------------------------------------------------------------------- */
+@import url('https://cdn.jsdelivr.net/npm/@abdulrysr/saudi-riyal-new-symbol-font/style.css');
+.symbol {
+    font-family: 'SaudiRiyalSymbol', sans-serif;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: bold;
+    color: inherit;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: text-bottom;
+    margin-inline-end: .25rem;
+}
+:root{
+  --cream:#F1EEE9;      /* الكريمي = خلفية الموقع */
+  --cream-2:#EAE4DA;    /* كريمي أغمق شوي = خلفية قسم المنيو */
+  --paper:#F7F5F1;      /* كريمي أفتح = خلفية الكروت */
+  --espresso:#4C2D22;   /* البنّي الأساسي = الهوية + النصوص المهمة */
+  --ink:#3A241C;        /* بنّي أنعم = لون نص الفقرات */
+  --deep:#291811;       /* بنّي غامق جدًا = الفوتر والباند الغامق */
+  --latte:#B49E89;      /* بيج فاتح = النصوص الثانوية/الإنجليزي الصغير */
+  --line:rgba(76,45,34,.20);       /* خطوط رفيعة فاتحة */
+  --line-2:rgba(76,45,34,.42);     /* خطوط رفيعة أغمق */
+  --cream-line:rgba(241,238,233,.38); /* خطوط كريمية فوق الخلفيات الغامقة */
+
+  /* الخطوط — تجي من Google Fonts (مربوطة في index.html) */
+  --f-display:'El Messiri','IBM Plex Sans Arabic',sans-serif; /* العناوين */
+  --f-body:'IBM Plex Sans Arabic','Segoe UI',sans-serif;       /* النص العادي */
+  --f-latin:'Space Grotesk','IBM Plex Sans Arabic',sans-serif; /* الإنجليزي والأرقام */
+
+  --maxw:1180px;                  /* أقصى عرض للمحتوى */
+  --pad:clamp(18px,4.5vw,56px);   /* الهامش الجانبي (يتغيّر مع حجم الشاشة) */
+  --nav-h:62px;                   /* ارتفاع القائمة العلوية */
+  --ease:cubic-bezier(.2,.7,.2,1);/* منحنى الحركة (ناعم) */
+}
+
+/* -------------------------------------------------------------------
+   2) إعادة ضبط عامة (reset) — لا تحتاج تعدّلها غالبًا
+   ------------------------------------------------------------------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--f-body);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:var(--espresso);color:var(--cream)} /* لون تحديد النص */
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2.5px solid var(--espresso);outline-offset:3px;border-radius:4px} /* إطار التركيز للوصولية */
+
+/* -------------------------------------------------------------------
+   3) عناصر مشتركة
+   .wrap = الحاوية اللي تحدّد العرض والهوامش
+   .eyebrow = السطر الصغير فوق العناوين (Specialty Coffee...)
+   ------------------------------------------------------------------- */
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.lat{font-family:var(--f-latin);direction:ltr;unicode-bidi:isolate;letter-spacing:.01em} /* لأي نص إنجليزي وسط العربي */
+.eyebrow{font-family:var(--f-latin);direction:ltr;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--espresso);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:24px;height:1.5px;background:var(--line-2)} /* الشرطة الصغيرة */
+.eyebrow.on-dark{color:var(--latte)}                 /* نسخة فوق الخلفية الغامقة */
+.eyebrow.on-dark::before{background:var(--cream-line)}
+
+/* -------------------------------------------------------------------
+   4) الظهور التدريجي عند السكرول (Reveal) + طبقة أمان
+   - العناصر اللي عليها class="reveal" تظهر بنعومة لما توصلها بالسكرول
+   - طبقة الأمان (revealSafe) تضمن ظهور كل شي حتى لو الجافاسكربت تعطّل
+   ------------------------------------------------------------------- */
+@keyframes revealSafe{to{opacity:1;transform:none}}
+@keyframes innerSafe{to{transform:none}}
+@keyframes rise{to{opacity:1;transform:none}}
+.reveal{transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.js .reveal{opacity:0;transform:translateY(24px);animation:revealSafe .01s linear 3.5s forwards}
+.reveal.in{opacity:1;transform:none;animation:none}                 /* .in تنضاف بالجافاسكربت */
+html.js .reveal-load{opacity:0;transform:translateY(20px);animation:revealSafe .01s linear 3.5s forwards}
+body.loaded .reveal-load{animation:rise .9s var(--ease) forwards}    /* عناصر الهيرو تظهر بعد شاشة التحميل */
+.d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.49s} /* تأخير متتابع */
+
+/* -------------------------------------------------------------------
+   5) شاشة التحميل (Preloader) — الكوب اللي يتعبّى قهوة
+   - تختفي تلقائيًا بعد ~1 ثانية أو بأول لمسة/سكرول
+   - تبي تشيلها نهائيًا؟ احذف بلوك .preloader من index.html والجافاسكربت
+   ------------------------------------------------------------------- */
+.preloader{display:none}
+html.js .preloader{position:fixed;inset:0;z-index:100;background:var(--cream);display:grid;place-items:center;transition:transform .7s cubic-bezier(.7,0,.3,1)}
+.preloader.hide{transform:translateY(-100%)}
+.pre-inner{display:flex;flex-direction:column;align-items:center;gap:16px}
+.pre-cup{width:78px;height:90px;color:var(--espresso)}
+.pre-cup .fill{fill:var(--espresso);transform:scaleY(0);transform-box:fill-box;transform-origin:bottom;animation:fillup 1s cubic-bezier(.6,0,.4,1) .15s forwards}
+@keyframes fillup{to{transform:scaleY(1)}}
+.pre-word{font-family:var(--f-display);font-weight:700;color:var(--espresso);font-size:1.5rem;letter-spacing:.02em;opacity:0;animation:fadeIn .6s ease .55s forwards}
+@keyframes fadeIn{to{opacity:1}}
+
+/* -------------------------------------------------------------------
+   6) المؤشر المخصّص + شريط التقدّم + زر "ارجع فوق"
+   - المؤشر المخصّص يشتغل بالكمبيوتر فقط (ماوس)
+   ------------------------------------------------------------------- */
+.cursor-ring,.cursor-dot{position:fixed;inset-block-start:0;inset-inline-start:0;pointer-events:none;z-index:90;border-radius:50%;mix-blend-mode:difference;will-change:transform;display:none}
+.cursor-ring{width:36px;height:36px;border:1.5px solid #fff}
+.cursor-dot{width:6px;height:6px;background:#fff}
+body.has-cursor{cursor:none}
+body.has-cursor a,body.has-cursor button,body.has-cursor .card{cursor:none}
+body.has-cursor .cursor-ring,body.has-cursor .cursor-dot{display:block}
+.progress{position:fixed;inset-block-start:0;inset-inline:0;height:3px;z-index:70;transform:scaleX(0);transform-origin:right;background:linear-gradient(90deg,var(--latte),var(--espresso))}
+.backtop{position:fixed;inset-block-end:20px;inset-inline-start:20px;z-index:65;width:50px;height:50px;border-radius:50%;background:var(--espresso);color:var(--cream);border:0;display:grid;place-items:center;cursor:pointer;opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .3s,transform .3s,background .25s;box-shadow:0 10px 22px rgba(41,24,17,.18)}
+.backtop.show{opacity:1;transform:none;pointer-events:auto}
+.backtop:hover{background:var(--deep);transform:translateY(-3px)}
+.backtop svg{width:21px;height:21px}
+
+/* -------------------------------------------------------------------
+   7) القائمة العلوية (Nav)
+   - .scrolled = الشكل بعد ما تنزل بالسكرول (خلفية شفافة + خط تحت)
+   ------------------------------------------------------------------- */
+.nav{position:fixed;inset-block-start:0;inset-inline:0;z-index:60;height:var(--nav-h);display:flex;align-items:center;transition:background .35s,border-color .35s,backdrop-filter .35s;border-block-end:1px solid transparent}
+.nav.scrolled{background:rgba(241,238,233,.85);backdrop-filter:saturate(140%) blur(12px);border-block-end:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-brand img{height:25px;width:auto;transition:transform .3s var(--ease)} /* حجم الشعار بالقائمة */
+.nav-brand:hover img{transform:scale(1.05) rotate(-1deg)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.97rem;font-weight:500;color:var(--ink);position:relative;padding-block:6px}
+.nav-links a::after{content:"";position:absolute;inset-block-end:0;inset-inline-start:0;height:1.5px;width:0;background:var(--espresso);transition:width .3s} /* الخط اللي ينرسم تحت الرابط عند المرور */
+.nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+.nav-cta{font-family:var(--f-body);font-weight:600;font-size:.93rem;background:var(--espresso);color:var(--cream);padding:8px 20px;border-radius:999px;border:1.5px solid var(--espresso);transition:background .25s,color .25s,transform .2s;will-change:transform}
+.nav-cta:hover{background:transparent;color:var(--espresso)}
+.burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;color:var(--espresso)} /* زر القائمة بالجوال */
+.burger svg{width:26px;height:26px}
+
+/* -------------------------------------------------------------------
+   8) الهيرو (أول شاشة)
+   - .hero-beans = حبوب القهوة اللي تطفو بالخلفية
+   - .hero h1 .inner = العنوان يطلع سطر سطر من خلف قناع
+   - .hero-art img = الماسكوت (يطفو طفو خفيف)
+   ------------------------------------------------------------------- */
+.hero{padding-block:calc(var(--nav-h) + clamp(26px,5vw,52px)) clamp(28px,5vw,56px);position:relative;overflow:hidden}
+.hero-beans{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-beans span{position:absolute;color:var(--espresso);will-change:transform}
+.hero-beans svg{width:100%;height:100%}
+.b1{inset-block-start:16%;inset-inline-start:5%;width:32px;height:32px;opacity:.12;animation:float1 9s ease-in-out infinite}
+.b2{inset-block-start:64%;inset-inline-start:9%;width:20px;height:20px;opacity:.16;animation:float2 11s ease-in-out infinite}
+.b3{inset-block-start:22%;inset-inline-end:7%;width:24px;height:24px;opacity:.10;animation:float1 13s ease-in-out infinite reverse}
+.b4{inset-block-start:72%;inset-inline-end:13%;width:28px;height:28px;opacity:.13;animation:float2 10s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-20px) rotate(14deg)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(16px) rotate(-12deg)}}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,4vw,52px);align-items:center;position:relative;z-index:1}
+.hero-logo{width:min(380px,72%);height:auto;margin-block-end:22px} /* حجم الشعار الكبير */
+.hero h1{font-family:var(--f-display);font-weight:700;color:var(--espresso);font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.08;letter-spacing:-.01em;margin-block-end:16px}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .inner{display:block;transition:transform .9s var(--ease)}
+html.js .hero h1 .inner{transform:translateY(115%);animation:innerSafe .01s linear 3.5s forwards}
+body.loaded .hero h1 .line:nth-child(1) .inner{transition-delay:.28s;transform:none;animation:none}
+body.loaded .hero h1 .line:nth-child(2) .inner{transition-delay:.4s;transform:none;animation:none}
+.hero p.lead{font-size:clamp(1.02rem,1.9vw,1.26rem);max-width:44ch;color:var(--ink);font-weight:300}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-block-start:28px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-block-start:22px} /* الوسوم الصغيرة تحت العنوان */
+.hero-chips span{font-size:.82rem;font-weight:500;color:var(--espresso);border:1.4px solid var(--line-2);border-radius:999px;padding:5px 14px;display:inline-flex;align-items:center;gap:7px}
+.hero-chips span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--espresso)}
+
+/* الأزرار — تستخدمها بكل مكان */
+.btn{font-family:var(--f-body);font-weight:600;font-size:1rem;cursor:pointer;padding:13px 28px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--espresso);transition:background .25s,color .25s,transform .2s var(--ease);position:relative;will-change:transform}
+.btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(-4px)}
+.btn-solid{background:var(--espresso);color:var(--cream)}      /* زر معبّى */
+.btn-solid:hover{background:transparent;color:var(--espresso)}
+.btn-ghost{background:transparent;color:var(--espresso)}       /* زر مفرّغ */
+.btn-ghost:hover{background:var(--espresso);color:var(--cream)}
+
+.hero-art{position:relative;display:flex;justify-content:center;align-items:flex-end}
+.hero-art img{width:min(330px,82%);height:auto;filter:drop-shadow(0 16px 24px rgba(41,24,17,.10));animation:bob 6s ease-in-out infinite;will-change:transform}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}} /* طفو الماسكوت */
+.steam{position:absolute;inset-block-start:5%;inset-inline-start:50%;transform:translateX(-50%);width:66px;height:86px;color:var(--espresso);opacity:.5;z-index:2} /* البخار */
+.scrollcue{margin-block-start:34px;display:inline-flex;align-items:center;gap:10px;font-family:var(--f-latin);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--latte)}
+.scrollcue span{display:inline-block;width:1px;height:28px;background:var(--line-2);position:relative;overflow:hidden}
+.scrollcue span::after{content:"";position:absolute;inset-inline:0;height:9px;background:var(--espresso);animation:cue 1.9s ease-in-out infinite}
+@keyframes cue{0%{top:-9px}60%,100%{top:28px}}
+
+/* -------------------------------------------------------------------
+   9) الفاصل المرسوم باليد (الموجة بين الأقسام)
+   ------------------------------------------------------------------- */
+.divider{display:block;width:100%;max-width:220px;margin:clamp(26px,5vw,52px) auto;color:var(--line-2)}
+.divider path{stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease}
+.divider.in path{stroke-dashoffset:0} /* ينرسم لما يوصله السكرول */
+
+/* -------------------------------------------------------------------
+   10) قالب الأقسام العام
+   .section = الحشوة العمودية لكل قسم
+   .section-head = منطقة العنوان
+   ------------------------------------------------------------------- */
+.section{padding-block:clamp(40px,6vw,82px)}
+.section-head{max-width:60ch;margin-block-end:clamp(26px,4vw,44px)}
+.section-head h2{font-family:var(--f-display);font-weight:700;color:var(--espresso);font-size:clamp(1.9rem,4vw,3rem);line-height:1.14;margin-block:12px 0;letter-spacing:-.01em}
+
+/* -------------------------------------------------------------------
+   11) قسم القصة
+   ------------------------------------------------------------------- */
+.story{background:var(--cream)}
+.story-body{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(26px,5vw,60px);align-items:center}
+.story-body p{font-size:clamp(1.01rem,1.6vw,1.14rem);font-weight:300;margin-block-end:16px;max-width:56ch}
+.story-body p:last-child{margin-block-end:0}
+.story-aside{border:1.5px solid var(--line);border-radius:20px;padding:28px;background:var(--paper);transition:transform .4s var(--ease),box-shadow .4s var(--ease)} /* صندوق الاقتباس */
+.story-aside:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(41,24,17,.08)}
+.story-aside .q{font-family:var(--f-display);font-weight:600;color:var(--espresso);font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.5}
+.story-aside .sig{margin-block-start:16px;font-family:var(--f-latin);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--latte)}
+
+/* -------------------------------------------------------------------
+   12) باند "التجربة" الغامق — يكسر الكريمي ويعطي تباين
+   ------------------------------------------------------------------- */
+.exp{background:var(--espresso);color:var(--cream);padding-block:clamp(46px,7vw,88px);position:relative;overflow:hidden}
+.exp .wrap{position:relative;z-index:1}
+.exp h2{font-family:var(--f-display);font-weight:700;color:var(--cream);font-size:clamp(1.9rem,4vw,3rem);line-height:1.16;margin-block:12px 0;max-width:18ch}
+.exp .sub{font-weight:300;color:var(--cream);opacity:.8;max-width:50ch;margin-block-start:14px;font-size:clamp(1rem,1.7vw,1.15rem)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3.5vw,40px);margin-block-start:clamp(34px,5vw,56px)}
+.exp-item{border-block-start:1.5px solid var(--cream-line);padding-block-start:20px}
+.exp-item .ic{width:42px;height:42px;color:var(--cream);margin-block-end:14px}
+.exp-item .ic *{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s ease .15s} /* الأيقونة تنرسم */
+.exp.in .ic *,.exp-item.in .ic *{stroke-dashoffset:0}
+.exp-item h3{font-family:var(--f-display);font-weight:600;color:var(--cream);font-size:1.25rem;margin-block-end:6px}
+.exp-item p{font-size:.96rem;font-weight:300;color:var(--cream);opacity:.78;max-width:32ch}
+.exp-cup{position:absolute;inset-block-end:-24px;inset-inline-start:-20px;width:160px;color:var(--cream-line);z-index:0;opacity:.5} /* كوب زخرفي بالخلفية */
+
+/* -------------------------------------------------------------------
+   13) الشريط المتحرّك (Marquee)
+   - النص يتكرر مرتين عشان الحركة تكون سلسة بلا قطع
+   - يوقف عند المرور بالماوس
+   ------------------------------------------------------------------- */
+.marquee{background:var(--deep);color:var(--cream);overflow:hidden;padding-block:16px;border-block:1.5px solid rgba(0,0,0,.2)}
+.marquee-track{display:flex;width:max-content;direction:ltr;animation:marq 26s linear infinite;will-change:transform} /* السرعة = 26s، صغّرها يصير أسرع */
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee .it{display:inline-flex;align-items:center;gap:28px;padding-inline:28px;font-family:var(--f-display);font-weight:600;font-size:clamp(1rem,2vw,1.45rem);white-space:nowrap}
+.marquee .bn{width:15px;height:15px;color:var(--latte);flex:none}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* -------------------------------------------------------------------
+   14) المنيو + كروت المنتجات
+   - .frame = منطقة صورة المنتج (حاليًا فيها رسمة، تقدر تحط صورة)
+   - .frame img تطبّق object-fit:cover عشان الصورة تعبّي المكان بدون تشويه
+   ------------------------------------------------------------------- */
+.menu{background:var(--cream-2)}
+.menu-note{display:inline-flex;gap:10px;align-items:center;border:1.4px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:.84rem;font-weight:400;color:var(--ink);margin-block-end:26px}
+.menu-note svg{width:16px;height:16px;color:var(--espresso);flex:none}
+.cats{display:flex;flex-wrap:wrap;gap:9px;margin-block-end:clamp(26px,4vw,40px)} /* أزرار التنقّل بين الأقسام */
+.cats a{font-family:var(--f-body);font-weight:500;font-size:.93rem;padding:8px 18px;border:1.5px solid var(--line-2);border-radius:999px;color:var(--espresso);transition:background .25s,color .25s,transform .2s var(--ease)}
+.cats a:hover{background:var(--espresso);color:var(--cream);transform:translateY(-2px)}
+.cat-block{margin-block-end:clamp(40px,6vw,64px);scroll-margin-block-start:calc(var(--nav-h) + 18px)}
+.cat-block:last-child{margin-block-end:0}
+.cat-title{display:flex;align-items:baseline;gap:14px;margin-block-end:22px;border-block-end:1.5px solid var(--line-2);padding-block-end:12px}
+.cat-title h3{font-family:var(--f-display);font-weight:700;color:var(--espresso);font-size:clamp(1.45rem,2.8vw,2rem)}
+.cat-title .en{font-family:var(--f-latin);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--latte)}
+.menu-list{display:grid;grid-template-columns:1fr;gap:16px}
+.menu-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border:1.5px solid var(--line);border-radius:18px;background:var(--paper);transition:border-color .28s,box-shadow .28s}
+.menu-item:hover{border-color:var(--line-2);box-shadow:0 18px 30px rgba(41,24,17,.08)}
+.thumb{width:48px;height:48px;flex:none;border-radius:12px;background:var(--espresso);display:grid;place-items:center;overflow:hidden}
+.thumb svg{width:58%;height:58%;color:var(--cream);fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.menu-copy{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}
+.item-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
+.item-top h4{font-family:var(--f-display);font-weight:700;color:var(--espresso);font-size:1.1rem;line-height:1.2;margin:0}
+.menu-item .en{font-family:var(--f-latin);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--latte)}
+.menu-item .desc{margin:0;font-size:.92rem;font-weight:300;color:var(--ink);max-width:64ch}
+.price{font-family:var(--f-latin);font-weight:700;font-size:1.03rem;color:var(--espresso);white-space:nowrap;display:flex;align-items:center;gap:6px}
+.price .symbol{font-size:1.07em;line-height:1;vertical-align:middle}
+.menu-list .reveal{opacity:1;transform:none}
+.menu-item{opacity:0;transform:translateY(14px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.menu-item.reveal{opacity:1;transform:none}
+
+/* reset old card styles now unused in menu */
+.grid{display:grid;grid-template-columns:1fr;gap:0}
+.card{border:none;background:none;box-shadow:none;transform:none}
+.frame,.card-body{padding:0;background:transparent}
+.card-body .row{display:block}
+.card-body h4{font-size:1rem}
+.card-body .price{font-size:1rem}
+.card-body .en{font-size:.72rem}
+.card-body .desc{margin-block-start:0}
+
+/* تأخير ظهور الكروت بالتتابع داخل الصف */
+.grid .card:nth-child(1){transition-delay:0s}.grid .card:nth-child(2){transition-delay:.06s}.grid .card:nth-child(3){transition-delay:.12s}
+.grid .card:nth-child(4){transition-delay:.04s}.grid .card:nth-child(5){transition-delay:.1s}.grid .card:nth-child(6){transition-delay:.16s}
+.card.is-tilt{transition-delay:0s!important}
+
+/* -------------------------------------------------------------------
+   15) قسم زورونا + كرت الخريطة
+   ------------------------------------------------------------------- */
+.visit{background:var(--cream)}
+.visit h2{font-family:var(--f-display);font-weight:700;color:var(--espresso);font-size:clamp(1.9rem,4vw,3rem);line-height:1.14;margin-block:12px 0}
+.visit-body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,56px);align-items:center}
+.visit-list{list-style:none;display:flex;flex-direction:column;gap:20px;margin-block-start:6px}
+.visit-list li{display:flex;gap:14px;align-items:flex-start}
+.visit-list .ic{width:30px;height:30px;color:var(--espresso);flex:none;margin-block-start:2px}
+.visit-list .ic *{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s ease .15s}
+.visit-body .reveal.in .visit-list .ic *{stroke-dashoffset:0}
+.visit-list .k{font-family:var(--f-latin);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--latte);display:block;margin-block-end:2px} /* العنوان الصغير */
+.visit-list .v{font-size:1.08rem;font-weight:500;color:var(--espresso);line-height:1.5} /* القيمة */
+.visit-actions{display:flex;flex-wrap:wrap;gap:12px;margin-block-start:28px}
+.map-card{background:var(--espresso);border-radius:20px;overflow:hidden;position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center} /* تقدر تستبدله بخريطة قوقل iframe */
+.map-card svg{width:78%;height:78%;color:var(--cream);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.map-card .pin{animation:pinbob 2.6s ease-in-out infinite}
+@keyframes pinbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.map-tag{position:absolute;inset-block-end:16px;inset-inline-start:16px;font-family:var(--f-latin);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-line)}
+
+/* -------------------------------------------------------------------
+   16) الفوتر
+   ------------------------------------------------------------------- */
+.footer{background:var(--deep);color:var(--cream);padding-block:clamp(48px,7vw,76px) 28px;position:relative;overflow:hidden}
+.footer .cup-motif{position:absolute;inset-block-start:-10px;inset-inline-end:6%;width:112px;color:var(--cream-line)}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(26px,5vw,52px);align-items:start;position:relative}
+.footer-mark{font-family:var(--f-display);font-weight:700;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.1;color:var(--cream)}
+.footer-mark .en{display:block;font-family:var(--f-latin);font-weight:600;font-size:.78rem;letter-spacing:.34em;color:var(--latte);margin-block-start:8px}
+.footer p.tag{margin-block-start:16px;font-weight:300;opacity:.78;max-width:34ch;font-size:.96rem}
+.footer-col h5{font-family:var(--f-latin);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--latte);margin-block-end:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-col a,.footer-col li{font-size:.98rem;font-weight:300;color:var(--cream);opacity:.86;transition:opacity .2s}
+.footer-col a{position:relative;display:inline-block}
+.footer-col a::after{content:"";position:absolute;inset-block-end:-3px;inset-inline-start:0;height:1px;width:0;background:var(--cream);transition:width .3s;opacity:.6}
+.footer-col a:hover{opacity:1}
+.footer-col a:hover::after{width:100%}
+.footer-bottom{margin-block-start:clamp(36px,5vw,56px);padding-block-start:22px;border-block-start:1px solid var(--cream-line);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:300;opacity:.7}
+.footer-bottom .lat{font-size:.76rem;letter-spacing:.06em}
+
+/* -------------------------------------------------------------------
+   17) حركات إضافية (البخار)
+   ------------------------------------------------------------------- */
+.steam path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s ease-in-out infinite alternate}
+.steam path:nth-child(2){animation-delay:.4s}.steam path:nth-child(3){animation-delay:.8s}
+.footer .cup-motif .st{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.8s ease-in-out infinite alternate}
+@keyframes draw{0%{stroke-dashoffset:1;opacity:.2}50%{opacity:1}100%{stroke-dashoffset:0;opacity:.5}}
+
+/* -------------------------------------------------------------------
+   18) الجوال (Responsive) — التعديلات على الشاشات الصغيرة
+   ------------------------------------------------------------------- */
+@media (max-width:880px){
+  .hero .wrap{grid-template-columns:1fr;gap:6px}
+  .hero-art{order:-1;justify-content:flex-start}     /* الماسكوت يطلع فوق */
+  .hero-art img{width:min(220px,56%)}
+  .hero-logo{width:min(340px,88%)}
+  .story-body,.visit-body{grid-template-columns:1fr} /* عمود واحد */
+  .exp-grid{grid-template-columns:1fr;gap:0}
+  .exp-item{padding-block:18px}
+  .grid{grid-template-columns:repeat(2,1fr)}          /* كرتين بالصف */
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-mark-wrap{grid-column:1 / -1}
+  .map-card{max-width:380px;margin-inline:auto;width:100%;order:-1}
+}
+@media (max-width:560px){
+  /* قائمة الجوال المنسدلة */
+  .nav-links{position:fixed;inset-block-start:var(--nav-h);inset-inline:0;flex-direction:column;align-items:flex-start;gap:0;background:rgba(241,238,233,.97);backdrop-filter:blur(12px);border-block-end:1px solid var(--line);padding:8px var(--pad) 18px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+  .nav-links.open{transform:none;opacity:1;pointer-events:auto}
+  .nav-links a{width:100%;padding:13px 0;border-block-end:1px solid var(--line)}
+  .nav-links .nav-cta{margin-block-start:12px;width:100%;text-align:center;border-block-end:0}
+  .burger{display:inline-flex}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card-body{padding:12px 13px}
+  .card-body h4{font-size:1.05rem}
+  .footer-top{grid-template-columns:1fr}
+}
+@media (max-width:380px){ .grid{grid-template-columns:1fr} } /* كرت واحد بالصف للجوالات الصغيرة */
+
+/* -------------------------------------------------------------------
+   19) احترام "تقليل الحركة" (Reduce Motion)
+   - لو المستخدم مفعّل تقليل الحركة بجهازه: نوقف الحركات الثقيلة فقط
+     (طفو الماسكوت/الحبوب) ونخلي الأساسيات تشتغل
+   ------------------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-art img,.visit-art img,.hero-beans span,.map-card .pin{animation:none!important}
+  html.js .preloader{transition:opacity .5s ease!important}
+  .preloader.hide{transform:none!important;opacity:0!important}
+}
+
+/* -------------------------------------------------------------------
+   إضافات الإصلاح
+   ------------------------------------------------------------------- */
+
+/* عنوان مخفي بصريًا (للـ SEO وقارئات الشاشة) */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* شريط أقسام المنيو — لاصق فوق أثناء التصفح */
+.menu-tabs{position:sticky;top:calc(var(--nav-h) + 8px);z-index:40;display:flex;gap:8px;width:fit-content;margin-block-end:30px;padding:6px;background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.4px solid var(--line);border-radius:999px}
+.menu-tabs a{font-family:var(--f-display);font-weight:600;font-size:.92rem;color:var(--espresso);padding:7px 18px;border-radius:999px;transition:background .25s var(--ease),color .25s var(--ease)}
+.menu-tabs a:hover,.menu-tabs a:focus-visible{background:var(--espresso);color:var(--cream)}
+@media (max-width:560px){.menu-tabs{width:100%;justify-content:center}.menu-tabs a{padding:7px 12px;font-size:.86rem}}
+
+/* عشان روابط الأقسام ما تنقص تحت القائمة العلوية والشريط اللاصق */
+.cat-block{scroll-margin-top:calc(var(--nav-h) + 70px)}

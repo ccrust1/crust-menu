@@ -117,9 +117,9 @@ html.js .preloader{position:fixed;inset:0;z-index:100;background:var(--cream);di
    6) المؤشر المخصّص + شريط التقدّم + زر "ارجع فوق"
    - المؤشر المخصّص يشتغل بالكمبيوتر فقط (ماوس)
    ------------------------------------------------------------------- */
-.cursor-ring,.cursor-dot{position:fixed;inset-block-start:0;inset-inline-start:0;pointer-events:none;z-index:90;border-radius:50%;mix-blend-mode:difference;will-change:transform;display:none}
-.cursor-ring{width:36px;height:36px;border:1.5px solid #fff}
-.cursor-dot{width:6px;height:6px;background:#fff}
+.cursor-ring,.cursor-dot{position:fixed;inset-block-start:0;inset-inline-start:0;pointer-events:none;z-index:90;border-radius:50%;will-change:transform;display:none}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--espresso)}
+.cursor-dot{width:6px;height:6px;background:var(--espresso)}
 body.has-cursor{cursor:none}
 body.has-cursor a,body.has-cursor button,body.has-cursor .card{cursor:none}
 body.has-cursor .cursor-ring,body.has-cursor .cursor-dot{display:block}

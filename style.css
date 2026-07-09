@@ -23,6 +23,20 @@
     vertical-align: text-bottom;
     margin-inline-end: .25rem;
 }
+/* ===== خط ثمانية سيرف ديسبلاي ===== */
+@font-face{
+  font-family:'Thmanyah Serif Display';
+  src:url('assets/fonts/thmanyahserifdisplay-Medium.woff2') format('woff2');
+  font-weight:500;
+  font-display:swap;
+}
+@font-face{
+  font-family:'Thmanyah Serif Display';
+  src:url('assets/fonts/thmanyahserifdisplay-Bold.woff2') format('woff2');
+  font-weight:700;
+  font-display:swap;
+}
+
 :root{
   --cream:#F1EEE9;      /* الكريمي = خلفية الموقع */
   --cream-2:#EAE4DA;    /* كريمي أغمق شوي = خلفية قسم المنيو */
@@ -36,7 +50,7 @@
   --cream-line:rgba(241,238,233,.38); /* خطوط كريمية فوق الخلفيات الغامقة */
 
   /* الخطوط — تجي من Google Fonts (مربوطة في index.html) */
-  --f-display:'El Messiri','IBM Plex Sans Arabic',sans-serif; /* العناوين */
+  --f-display:'Thmanyah Serif Display','El Messiri','IBM Plex Sans Arabic',sans-serif; /* العناوين */
   --f-body:'IBM Plex Sans Arabic','Segoe UI',sans-serif;       /* النص العادي */
   --f-latin:'Space Grotesk','IBM Plex Sans Arabic',sans-serif; /* الإنجليزي والأرقام */
 

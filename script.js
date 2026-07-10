@@ -151,3 +151,19 @@ if(FINE && !RM){
     card.addEventListener('mouseleave', ()=>{ card.classList.remove('is-tilt'); card.style.transform = ''; });
   });
 }
+
+/* -------------------------------------------------------------------
+   قسم بطاقة الولاء: تشغيل الحركة عند وصول القسم للشاشة
+   (تعيد الحركة كل ما رجع الزائر للقسم — لجعلها مرة واحدة احذف سطر remove)
+   ------------------------------------------------------------------- */
+(function(){
+   const sec = document.querySelector('.loyalty');
+   if(!sec) return;
+   const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+         if(en.isIntersecting){ sec.classList.add('play'); }
+         else{ sec.classList.remove('play'); }
+      });
+   }, {threshold:0.3});
+   obs.observe(sec);
+})();

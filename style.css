@@ -410,7 +410,7 @@ body.loaded .hero h1 .line:nth-child(2) .inner{transition-delay:.4s;transform:no
 .loyalty{padding:100px 24px;overflow:hidden}
 .loy-grid{
    max-width:1080px;margin-inline:auto;
-   display:grid;grid-template-columns:1.05fr .95fr;
+   display:grid;grid-template-columns:1.05fr .95fr;direction:rtl;
    gap:clamp(36px,6vw,80px);align-items:center;
 }
 .loy-eyebrow{

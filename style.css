@@ -496,3 +496,45 @@ body.loaded .hero h1 .line:nth-child(2) .inner{transition-delay:.4s;transform:no
 }
 .loy-card .loy-cta{display:inline-block;margin-inline:auto}
 .loy-card{text-align:center;transform:none}
+
+
+/* ===================================================================
+   صف الهايلايتس بالهيرو — ديسكتوب: صف واحد / جوال: شبكة 3×2
+   =================================================================== */
+.hl-row{display:flex;gap:16px;margin-block-start:30px}
+.hl{display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.hl-ring{
+  width:66px;height:66px;border-radius:50%;
+  border:1.6px solid var(--espresso);
+  display:grid;place-items:center;background:transparent;
+  transition:transform .22s var(--ease),background .22s;
+}
+.hl:hover .hl-ring{transform:translateY(-4px)}
+.hl:active .hl-ring{transform:scale(.92)}
+.hl-ring svg{width:27px;height:27px;color:var(--espresso)}
+.hl-ring img{width:48px;height:48px;object-fit:contain}
+.hl-label{font-size:.8rem;font-weight:500;color:var(--espresso);white-space:nowrap}
+
+/* دائرة الولاء: حلقة ذهبية بلون أختام البطاقة */
+.hl-loyal .hl-ring{border-color:transparent;box-shadow:0 0 0 1.6px var(--cream), 0 0 0 4px #FDC021}
+
+/* نزول سلس تحت القائمة عند الضغط على الولاء/المنيو */
+.loyalty, #menu{scroll-margin-block-start:calc(var(--nav-h) + 10px)}
+
+/* جوال: هيرو متوسط + ماسكوت مصغّر + شبكة 3×2 */
+@media (max-width:880px){
+  .hero-text{text-align:center}
+  .hero-art{justify-content:center}
+  .hero-art img{width:118px}
+  .steam{display:none}
+  .hero-logo{width:min(270px,66%);margin-inline:auto}
+  .hero .lead{margin-inline:auto}
+  .scrollcue{display:none}
+  .hl-row{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px 10px;max-width:330px;margin-inline:auto;margin-block-start:26px;
+  }
+  .hl-ring{width:72px;height:72px}
+  .hl-ring svg{width:30px;height:30px}
+  .hl-ring img{width:52px;height:52px}
+}
